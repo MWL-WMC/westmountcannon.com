@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Westmount Cannon | Fractional COO & Operations Consulting</title>
+  <meta name="description" content="Westmount Cannon provides fractional COO and operations consulting for growing companies. Strategic leadership without the full-time overhead." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --white: #ffffff;
+      --off-white: #f7f6f4;
+      --light-gray: #efefed;
+      --mid-gray: #c8c7c3;
+      --text-secondary: #6b6a66;
+      --text-primary: #1a1a18;
+      --accent: #1a3a5c;
+      --accent-light: #e8eef4;
+      --rule: #e2e1de;
+      --serif: 'DM Serif Display', Georgia, serif;
+      --sans: 'DM Sans', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      color: var(--text-primary);
+      background: var(--white);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.94);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--rule);
+    }
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      color: var(--text-primary);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+    }
+    .nav-logo span {
+      color: var(--accent);
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      align-items: center;
+    }
+    .nav-links a {
+      font-size: 0.875rem;
+      font-weight: 400;
+      color: var(--text-secondary);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text-primary); }
+    .nav-cta {
+      background: var(--accent) !important;
+      color: var(--white) !important;
+      padding: 0.5rem 1.25rem;
+      border-radius: 2px;
+      font-weight: 500 !important;
+      transition: opacity 0.2s !important;
+    }
+    .nav-cta:hover { opacity: 0.85; }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: var(--text-primary);
+      transition: all 0.25s;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      padding-top: 64px;
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .hero-left {
+      padding: 6rem 3rem 6rem 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+    .hero-headline {
+      font-family: var(--serif);
+      font-size: clamp(2.4rem, 4vw, 3.5rem);
+      line-height: 1.15;
+      color: var(--text-primary);
+      margin-bottom: 1.5rem;
+    }
+    .hero-headline em {
+      font-style: italic;
+      color: var(--accent);
+    }
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      max-width: 440px;
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+      line-height: 1.8;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: var(--white);
+      padding: 0.8rem 1.75rem;
+      font-family: var(--sans);
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity 0.2s;
+      display: inline-block;
+    }
+    .btn-primary:hover { opacity: 0.85; }
+    .btn-secondary {
+      background: transparent;
+      color: var(--text-primary);
+      padding: 0.8rem 1.75rem;
+      font-family: var(--sans);
+      font-size: 0.875rem;
+      font-weight: 400;
+      letter-spacing: 0.03em;
+      border: 1px solid var(--mid-gray);
+      border-radius: 2px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
+      display: inline-block;
+    }
+    .btn-secondary:hover { border-color: var(--text-primary); }
+
+    .hero-right {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--off-white);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-right::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 320px; height: 320px;
+      border-radius: 50%;
+      background: var(--accent-light);
+      opacity: 0.6;
+    }
+    .avatar-wrap {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .avatar {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: var(--light-gray);
+      border: 3px solid var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .avatar svg { opacity: 0.35; }
+    .hero-name-block { text-align: center; }
+    .hero-name {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      color: var(--text-primary);
+    }
+    .hero-title {
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: var(--text-secondary);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-top: 0.25rem;
+    }
+
+    /* ── DIVIDER ── */
+    .full-rule {
+      border: none;
+      border-top: 1px solid var(--rule);
+      margin: 0;
+    }
+
+    /* ── SECTION BASE ── */
+    .section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
+    }
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    .section-heading {
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      line-height: 1.2;
+      color: var(--text-primary);
+      margin-bottom: 1.25rem;
+    }
+    .section-body {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      line-height: 1.85;
+      font-weight: 300;
+      max-width: 600px;
+    }
+
+    /* ── STATS STRIP ── */
+    .stats-strip {
+      background: var(--accent);
+      padding: 3rem 2rem;
+    }
+    .stats-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+    .stat {
+      text-align: center;
+      padding: 1rem;
+    }
+    .stat-number {
+      font-family: var(--serif);
+      font-size: 2.75rem;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .stat-label {
+      font-size: 0.8rem;
+      font-weight: 300;
+      letter-spacing: 0.06em;
+      color: rgba(255,255,255,0.65);
+      text-transform: uppercase;
+    }
+
+    /* ── ABOUT ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .about-image-block {
+      position: relative;
+    }
+    .about-photo {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: var(--light-gray);
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .about-photo svg { opacity: 0.3; }
+    .about-accent-box {
+      position: absolute;
+      bottom: -1.5rem;
+      right: -1.5rem;
+      background: var(--accent);
+      color: var(--white);
+      padding: 1.25rem 1.5rem;
+      border-radius: 2px;
+      max-width: 200px;
+    }
+    .about-accent-box .number {
+      font-family: var(--serif);
+      font-size: 2rem;
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+    .about-accent-box .label {
+      font-size: 0.75rem;
+      font-weight: 300;
+      opacity: 0.8;
+      line-height: 1.4;
+    }
+    .about-content { }
+    .about-list {
+      margin-top: 2rem;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .about-list li {
+      display: flex;
+      gap: 0.75rem;
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      font-weight: 300;
+    }
+    .about-list li::before {
+      content: '';
+      display: block;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+      margin-top: 0.6rem;
+    }
+
+    /* ── SERVICES ── */
+    .services-bg {
+      background: var(--off-white);
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .service-card {
+      background: var(--white);
+      border: 1px solid var(--rule);
+      border-radius: 3px;
+      padding: 2rem 1.75rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .service-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 4px 24px rgba(26,58,92,0.06);
+    }
+    .service-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--accent-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+    }
+    .service-icon svg {
+      width: 16px; height: 16px;
+      stroke: var(--accent);
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .service-title {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      color: var(--text-primary);
+      margin-bottom: 0.75rem;
+    }
+    .service-desc {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      font-weight: 300;
+      line-height: 1.75;
+    }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .testimonial {
+      background: var(--white);
+      border: 1px solid var(--rule);
+      border-radius: 3px;
+      padding: 2rem 1.75rem;
+    }
+    .testimonial-quote {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--text-primary);
+      line-height: 1.65;
+      margin-bottom: 1.25rem;
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .testimonial-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--light-gray);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      flex-shrink: 0;
+    }
+    .testimonial-name {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+    .testimonial-role {
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      font-weight: 300;
+    }
+
+    /* ── CONTACT ── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .form-group label {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--text-primary);
+      background: var(--white);
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      padding: 0.7rem 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--accent);
+    }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .contact-info { }
+    .contact-detail {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+    }
+    .contact-detail-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--accent-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+    .contact-detail-icon svg {
+      width: 15px; height: 15px;
+      stroke: var(--accent);
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .contact-detail-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 0.2rem;
+    }
+    .contact-detail-value {
+      font-size: 0.95rem;
+      color: var(--text-primary);
+      font-weight: 300;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--text-primary);
+      color: var(--white);
+      padding: 2.5rem 2rem;
+    }
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-logo {
+      font-family: var(--serif);
+      font-size: 1rem;
+      color: var(--white);
+      text-decoration: none;
+    }
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+    .footer-links a {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      font-weight: 300;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--white); }
+    .footer-copy {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.35);
+      font-weight: 300;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-eyebrow  { animation: fadeUp 0.6s ease both; animation-delay: 0.1s; }
+    .hero-headline { animation: fadeUp 0.6s ease both; animation-delay: 0.22s; }
+    .hero-sub      { animation: fadeUp 0.6s ease both; animation-delay: 0.34s; }
+    .hero-actions  { animation: fadeUp 0.6s ease both; animation-delay: 0.46s; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+      .hero-right {
+        min-height: 320px;
+        order: -1;
+      }
+      .hero-left { padding: 3rem 1.5rem; }
+
+      .stats-inner { grid-template-columns: 1fr; gap: 0; }
+      .stat { border-bottom: 1px solid rgba(255,255,255,0.1); }
+      .stat:last-child { border-bottom: none; }
+
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .about-accent-box { right: 0; }
+      .services-grid { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .form-row { grid-template-columns: 1fr; }
+
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a class="nav-logo" href="#">Westmount<span>Cannon</span></a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#contact" class="nav-cta">Work Together</a></li>
+      </ul>
+      <button class="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <p class="hero-eyebrow">Fractional COO &amp; Operations Consulting</p>
+      <h1 class="hero-headline">
+        Operational clarity<br />for <em>companies</em><br />built to scale.
+      </h1>
+      <p class="hero-sub">
+        Senior operations leadership — without the full-time commitment. We help growth-stage companies build the infrastructure, processes, and teams they need to reach the next level.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Schedule a Call</a>
+        <a href="#services" class="btn-secondary">View Services</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="avatar-wrap">
+        <div class="avatar">
+          <!-- Placeholder silhouette -->
+          <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="40" cy="28" r="18" fill="#1a3a5c"/>
+            <path d="M4 80c0-19.882 16.118-36 36-36s36 16.118 36 36" fill="#1a3a5c"/>
+          </svg>
+        </div>
+        <div class="hero-name-block">
+          <div class="hero-name">Your Name Here</div>
+          <div class="hero-title">Founder &amp; Principal — Westmount Cannon LLC</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="full-rule" />
+
+  <!-- STATS STRIP -->
+  <div class="stats-strip">
+    <div class="stats-inner">
+      <div class="stat">
+        <div class="stat-number">15+</div>
+        <div class="stat-label">Years of Experience</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">30+</div>
+        <div class="stat-label">Engagements Completed</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">$2B+</div>
+        <div class="stat-label">Revenue Influenced</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="about-grid">
+      <div class="about-image-block">
+        <div class="about-photo">
+          <svg width="100" height="100" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="40" cy="28" r="18" fill="#1a3a5c"/>
+            <path d="M4 80c0-19.882 16.118-36 36-36s36 16.118 36 36" fill="#1a3a5c"/>
+          </svg>
+        </div>
+        <div class="about-accent-box">
+          <div class="number">12+</div>
+          <div class="label">Industries served across North America</div>
+        </div>
+      </div>
+      <div class="about-content">
+        <p class="section-label">About</p>
+        <h2 class="section-heading">Built for operators, by an operator.</h2>
+        <p class="section-body">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
+        <p class="section-body" style="margin-top: 1rem;">
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+        <ul class="about-list">
+          <li>Former VP of Operations at [Company Name], leading teams of 50+</li>
+          <li>Scaled multiple SaaS companies from Series A through exit</li>
+          <li>Deep expertise in systems design, team structure, and P&amp;L management</li>
+          <li>MBA, [University] — additional certification placeholder</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <hr class="full-rule" />
+
+  <!-- SERVICES -->
+  <div class="services-bg">
+    <section class="section" id="services">
+      <p class="section-label">Services</p>
+      <h2 class="section-heading">How we engage.</h2>
+      <p class="section-body">Flexible structures built around what your company actually needs — from embedded fractional leadership to focused project sprints.</p>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
+          <h3 class="service-title">Fractional COO</h3>
+          <p class="service-desc">Embedded, ongoing operational leadership on a part-time basis. Ideal for companies that need a senior operator but aren't ready for a full-time hire. Typical engagement: 2–3 days per week.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+          </div>
+          <h3 class="service-title">Operational Assessments</h3>
+          <p class="service-desc">A structured diagnostic of your operations, team, and systems. Delivered in 30–45 days with a clear prioritized roadmap. Ideal for pre-fundraise or post-acquisition clarity.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3 class="service-title">Team &amp; Org Design</h3>
+          <p class="service-desc">Structuring roles, reporting lines, and hiring plans for your next stage of growth. Includes org design, job architecture, and compensation benchmarking guidance.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <h3 class="service-title">Systems &amp; Process Design</h3>
+          <p class="service-desc">Identifying and fixing operational bottlenecks. Building scalable workflows, implementing the right tooling stack, and creating the operating cadences your company needs.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          </div>
+          <h3 class="service-title">Board &amp; Investor Prep</h3>
+          <p class="service-desc">Preparing management teams for board scrutiny, due diligence, and fundraising cycles. KPI dashboards, board reporting, and ops narrative development.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3 class="service-title">Interim Leadership</h3>
+          <p class="service-desc">Stepping into a seat on a temporary basis during a transition, departure, or search. Available for COO, VP Ops, and Chief of Staff roles across short or extended timelines.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- TESTIMONIALS -->
+  <section class="section" id="testimonials">
+    <p class="section-label">Testimonials</p>
+    <h2 class="section-heading">What clients say.</h2>
+
+    <div class="testimonials-grid">
+      <div class="testimonial">
+        <p class="testimonial-quote">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">JD</div>
+          <div>
+            <div class="testimonial-name">Jane Doe</div>
+            <div class="testimonial-role">CEO, Placeholder Company</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <p class="testimonial-quote">"Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">MS</div>
+          <div>
+            <div class="testimonial-name">Michael Smith</div>
+            <div class="testimonial-role">Founder &amp; CTO, Placeholder Inc.</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <p class="testimonial-quote">"Ut labore et dolore magna aliqua enim ad minim veniam. Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">AR</div>
+          <div>
+            <div class="testimonial-name">Amanda Rivera</div>
+            <div class="testimonial-role">COO, Sample Ventures</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <p class="testimonial-quote">"Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed perspiciatis unde omnis iste natus error sit voluptatem."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">TK</div>
+          <div>
+            <div class="testimonial-name">Thomas Kim</div>
+            <div class="testimonial-role">Managing Director, Example Group</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="full-rule" />
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <div class="contact-grid">
+      <div>
+        <p class="section-label">Contact</p>
+        <h2 class="section-heading">Let's talk about your business.</h2>
+        <p class="section-body" style="margin-bottom: 2.5rem;">Most engagements begin with a no-commitment 30-minute call. Tell us a bit about where you are and what you're trying to solve.</p>
+
+        <div class="contact-detail">
+          <div class="contact-detail-icon">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <div class="contact-detail-label">Email</div>
+            <div class="contact-detail-value">hello@westmountcannon.com</div>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <div class="contact-detail-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <div class="contact-detail-label">Location</div>
+            <div class="contact-detail-value">North America — Remote &amp; On-site</div>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <div class="contact-detail-icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <div>
+            <div class="contact-detail-label">Availability</div>
+            <div class="contact-detail-value">Currently accepting new engagements Q3 2025</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label>First name</label>
+            <input type="text" placeholder="Jane" />
+          </div>
+          <div class="form-group">
+            <label>Last name</label>
+            <input type="text" placeholder="Doe" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="jane@company.com" />
+        </div>
+        <div class="form-group">
+          <label>Company</label>
+          <input type="text" placeholder="Acme Corp" />
+        </div>
+        <div class="form-group">
+          <label>What are you looking for?</label>
+          <select>
+            <option value="">Select a service...</option>
+            <option>Fractional COO</option>
+            <option>Operational Assessment</option>
+            <option>Team & Org Design</option>
+            <option>Systems & Process Design</option>
+            <option>Board & Investor Prep</option>
+            <option>Interim Leadership</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Tell us about your situation</label>
+          <textarea placeholder="A few sentences about your company, current challenges, and what you're hoping to accomplish..."></textarea>
+        </div>
+        <button class="btn-primary" type="button" style="align-self: flex-start;">Send Message</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <a class="footer-logo" href="#">Westmount Cannon LLC</a>
+      <ul class="footer-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+      </ul>
+      <p class="footer-copy">&copy; 2025 Westmount Cannon LLC. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    hamburger.addEventListener('click', () => {
+      const open = navLinks.style.display === 'flex';
+      navLinks.style.display = open ? 'none' : 'flex';
+      navLinks.style.flexDirection = 'column';
+      navLinks.style.position = 'absolute';
+      navLinks.style.top = '64px';
+      navLinks.style.left = '0';
+      navLinks.style.right = '0';
+      navLinks.style.background = 'var(--white)';
+      navLinks.style.padding = '1rem 2rem 1.5rem';
+      navLinks.style.borderBottom = '1px solid var(--rule)';
+      navLinks.style.gap = '1rem';
+      if (open) navLinks.style.display = 'none';
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', () => {
+        if (navLinks.style.display === 'flex') navLinks.style.display = 'none';
+      });
+    });
+  </script>
+</body>
+</html>
